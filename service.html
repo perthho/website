@@ -49,13 +49,15 @@
         <ul>
           <li><a href="index.html" class="active">HOME</a></li>
           <li class="dropdown"><a href="products.html"><span>PRODUCTS</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="admissions.html">Admissions</a></li>
-              <li><a href="academics.html">Academics</a></li>
-              <li><a href="faculty-staff.html">Faculty &amp; Staff</a></li>
-              <li><a href="campus-facilities.html">Campus &amp; Facilities</a></li>
+            <li class="dropdown"><a href="products.html" aria-haspopup="true" aria-expanded="false"><span>PRODUCTS</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul role="menu">
+              <li><a href="about.html" role="menuitem">Bags</a></li>
+              <li><a href="admissions.html" role="menuitem">Jewellery</a></li>
+              <li><a href="academics.html" role="menuitem">Home Decor</a></li>
+              <li><a href="faculty-staff.html" role="menuitem">Festive Decor</a></li>
+              <li><a href="campus-facilities.html" role="menuitem">Recycled</a></li>
             </ul>
+          </li>
           </li>
           <li class="dropdown"><a href="about.html"><span>ABOUT US</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -119,7 +121,68 @@
 
     <!--  -->
 
-    
+    <!-- Services Section -->
+        <section id="services" class="services section">
+          <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row mission-vision-row g-4">
+              <div class="container section-title pt-5" data-aos="fade-up">
+                <h2>Our Services</h2>
+              </div>
+              <!-- Direct Product export -->
+              <div class="col-md-3">
+                <a href="info4.html">
+                  <div class="text-center p-4" style="transition: all 1s ease;" 
+                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
+                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
+                <img src="assets/img/Icons/logistics.png" alt="home icon" style="width: 60px; height: 60px;" />          
+                  <h5 class="p-2">Direct Product Export</h5>
+                  <p style="margin: 0;">Export premium Indian products to you, safely and on time.</p>
+                </div>
+                </a>
+                
+              </div>
+              <!-- Air Freight -->
+              <div class="col-md-3">
+                <a href="info3.html">
+                  <div class="text-center p-4" style="transition: all 1s ease;" 
+                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
+                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
+                    <img src="assets/img/Icons/cargo-plane.png" alt="home icon" style="width: 60px; height: 60px;" />          
+                    <h5 class="p-2">Air Freight</h5>
+                    <p style="margin: 0;">Fast global delivery with trusted air carriers.</p>
+                  </div>
+                </a>
+                
+              </div>
+              <!-- Ocean Freight FCL -->
+              <div class="col-md-3">
+                <a href="info-1.html">
+                  <div class="text-center p-4" style="transition: all 1s ease;" 
+                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
+                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
+                    <img src="assets/img/Icons/fcl.png" alt="home icon" style="width: 60px; height: 60px;" />          
+                    <h5 class="p-2">Ocean Freight FCL</h5>
+                    <p style="margin: 0;">Ship full containers with cost-effective timing.</p>
+                  </div>
+                </a>
+                
+              </div>
+              <!-- Ocean Freight LCL -->
+              <div class="col-md-3">
+                <a href="info2.html">
+                  <div class="text-center p-4" style="transition: all 1s ease;" 
+                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
+                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
+                  <img src="assets/img/Icons/lcl.png" alt="home icon" style="width: 60px; height: 60px;" />          
+                  <h5 class="p-2">Ocean Freight LCL</h5>
+                  <p style="margin: 0;">Share container space for flexible, low-cost shipping.</p>
+                </div>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </section>
 
     <!--  -->
 

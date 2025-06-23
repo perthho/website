@@ -62,6 +62,350 @@
   <!-- Time line CSS -->
 
   <style>
+    .dark {
+	background: #F1F5F4;
+}
+
+a, a:hover {
+	text-decoration: none;
+	transition: color 0.3s ease-in-out;
+}
+
+#pageHeaderTitle {
+	margin: 2rem 0;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 2.5rem;
+}
+
+/* Cards */
+.postcard {
+  flex-wrap: wrap;
+  display: flex;
+  
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  border-radius: 0px;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+
+	&.dark {
+		background-color: #000000;
+	}
+	&.light {
+		background-color: #e1e5ea;
+	}
+	
+	.t-dark {
+		color: #18151f;
+	}
+	
+  a {
+    color: inherit;
+  }
+	
+	h1,	.h1 {
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+	
+	.small {
+		font-size: 80%;
+	}
+
+  .postcard__title {
+    font-size: 1.75rem;
+  }
+
+  .postcard__img {
+    max-height: 180px;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .postcard__img_link {
+    display: contents;
+  }
+
+  .postcard__bar {
+    width: 50px;
+    height: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #424242;
+    transition: width 0.2s ease;
+  }
+
+  .postcard__text {
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .postcard__preview-txt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    height: 100%;
+  }
+
+  .postcard__tagbox {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 14px;
+    margin: 20px 0 0 0;
+		padding: 0;
+    justify-content: center;
+
+    .tag__item {
+      display: inline-block;
+      background: rgba(83, 83, 83, 0.4);
+      border-radius: 3px;
+      padding: 2.5px 10px;
+      margin: 0 5px 5px 0;
+      cursor: default;
+      user-select: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: rgba(83, 83, 83, 0.8);
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(-70deg, #424242, transparent 50%);
+    opacity: 1;
+    border-radius: 0px;
+  }
+
+  &:hover .postcard__bar {
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .postcard {
+    flex-wrap: inherit;
+
+    .postcard__title {
+      font-size: 2rem;
+    }
+
+    .postcard__tagbox {
+      justify-content: start;
+    }
+
+    .postcard__img {
+      max-width: 300px;
+      max-height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .postcard__text {
+      padding: 3rem;
+      width: 100%;
+    }
+
+    .media.postcard__text:before {
+      content: "";
+      position: absolute;
+      display: block;
+      background: #18151f;
+      top: -20%;
+      height: 130%;
+      width: 55px;
+    }
+
+    &:hover .postcard__img {
+      transform: scale(1.1);
+    }
+
+    &:nth-child(2n+1) {
+      flex-direction: row;
+    }
+
+    &:nth-child(2n+0) {
+      flex-direction: row-reverse;
+    }
+
+    &:nth-child(2n+1) .postcard__text::before {
+      left: -12px !important;
+      transform: rotate(4deg);
+    }
+
+    &:nth-child(2n+0) .postcard__text::before {
+      right: -12px !important;
+      transform: rotate(-4deg);
+    }
+  }
+}
+@media screen and (min-width: 1024px){
+		.postcard__text {
+      padding: 2rem 3.5rem;
+    }
+		
+		.postcard__text:before {
+      content: "";
+      position: absolute;
+      display: block;
+      
+      top: -20%;
+      height: 130%;
+      width: 55px;
+    }
+	
+  .postcard.dark {
+		.postcard__text:before {
+			background: #F1F5F4;
+		}
+  }
+	.postcard.light {
+		.postcard__text:before {
+			background: #e1e5ea;
+		}
+  }
+}
+
+/* COLORS */
+.postcard .postcard__tagbox .green.play:hover {
+	background: $main-green;
+	color: black;
+}
+.green .postcard__title:hover {
+	color: $main-green;
+}
+.green .postcard__bar {
+	background-color: $main-green;
+}
+.green::before {
+	background-image: linear-gradient(
+		-30deg,
+		$main-green-rgb-015,
+		transparent 50%
+	);
+}
+.green:nth-child(2n)::before {
+	background-image: linear-gradient(30deg, $main-green-rgb-015, transparent 50%);
+}
+
+.postcard .postcard__tagbox .blue.play:hover {
+	background: $main-blue;
+}
+.blue .postcard__title:hover {
+	color: $main-blue;
+}
+.blue .postcard__bar {
+	background-color: $main-blue;
+}
+.blue::before {
+	background-image: linear-gradient(-30deg, $main-blue-rgb-015, transparent 50%);
+}
+.blue:nth-child(2n)::before {
+	background-image: linear-gradient(30deg, $main-blue-rgb-015, transparent 50%);
+}
+
+.postcard .postcard__tagbox .red.play:hover {
+	background: $main-red;
+}
+.red .postcard__title:hover {
+	color: $main-red;
+}
+.red .postcard__bar {
+	background-color: $main-red;
+}
+.red::before {
+	background-image: linear-gradient(-30deg, $main-red-rgb-015, transparent 50%);
+}
+.red:nth-child(2n)::before {
+	background-image: linear-gradient(30deg, $main-red-rgb-015, transparent 50%);
+}
+
+.postcard .postcard__tagbox .yellow.play:hover {
+	background: $main-yellow;
+	color: black;
+}
+.yellow .postcard__title:hover {
+	color: $main-yellow;
+}
+.yellow .postcard__bar {
+	background-color: $main-yellow;
+}
+.yellow::before {
+	background-image: linear-gradient(
+		-30deg,
+		$main-yellow-rgb-015,
+		transparent 50%
+	);
+}
+.yellow:nth-child(2n)::before {
+	background-image: linear-gradient(
+		30deg,
+		$main-yellow-rgb-015,
+		transparent 50%
+	);
+}
+
+@media screen and (min-width: 769px) {
+	.green::before {
+		background-image: linear-gradient(
+			-80deg,
+			$main-green-rgb-015,
+			transparent 50%
+		);
+	}
+	.green:nth-child(2n)::before {
+		background-image: linear-gradient(
+			80deg,
+			$main-green-rgb-015,
+			transparent 50%
+		);
+	}
+
+	.blue::before {
+		background-image: linear-gradient(
+			-80deg,
+			$main-blue-rgb-015,
+			transparent 50%
+		);
+	}
+	.blue:nth-child(2n)::before {
+		background-image: linear-gradient(80deg, $main-blue-rgb-015, transparent 50%);
+	}
+
+	.red::before {
+		background-image: linear-gradient(-80deg, $main-red-rgb-015, transparent 50%);
+	}
+	.red:nth-child(2n)::before {
+		background-image: linear-gradient(80deg, $main-red-rgb-015, transparent 50%);
+	}
+	
+	.yellow::before {
+		background-image: linear-gradient(
+			-80deg,
+			$main-yellow-rgb-015,
+			transparent 50%
+		);
+	}
+	.yellow:nth-child(2n)::before {
+		background-image: linear-gradient(
+			80deg,
+			$main-yellow-rgb-015,
+			transparent 50%
+		);
+	}
+}
+
     ul.timeline {
     list-style-type: none;
         position: relative;
@@ -125,11 +469,11 @@
           <li><a href="index.html" class="active" aria-current="page">HOME</a></li>
           <li class="dropdown"><a href="products.html" aria-haspopup="true" aria-expanded="false"><span>PRODUCTS</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul role="menu">
-              <li><a href="about.html" role="menuitem">About Us</a></li>
-              <li><a href="admissions.html" role="menuitem">Admissions</a></li>
-              <li><a href="academics.html" role="menuitem">Academics</a></li>
-              <li><a href="faculty-staff.html" role="menuitem">Faculty &amp; Staff</a></li>
-              <li><a href="campus-facilities.html" role="menuitem">Campus &amp; Facilities</a></li>
+              <li><a href="about.html" role="menuitem">Bags</a></li>
+              <li><a href="admissions.html" role="menuitem">Jewellery</a></li>
+              <li><a href="academics.html" role="menuitem">Home Decor</a></li>
+              <li><a href="faculty-staff.html" role="menuitem">Festive Decor</a></li>
+              <li><a href="campus-facilities.html" role="menuitem">Recycled</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="about.html" aria-haspopup="true" aria-expanded="false"><span>ABOUT US</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
@@ -182,9 +526,10 @@
     <section id="hero" class="hero section dark-background" aria-label="Main Hero Section">
 
       <div class="hero-container">
-        <video autoplay="" muted="" loop="" playsinline="" class="video-background" aria-hidden="true">
-          <source src="assets/img/index/6169411-uhd_2160_3840_25fps.mp4" type="video/mp4">
-        </video>
+        <!-- <video autoplay="" muted="" loop="" playsinline="" class="video-background" aria-hidden="true">
+          <source src="assets/img/index/6169411-uhd_2160_3840_25fps.webm" type="video/mp4">
+        </video> -->
+        <img class="video-background" aria-hidden="true" src="assets/img/index/g18.jpg" alt="">
         <div class="overlay" aria-hidden="true"></div>
         <div class="container">
           <div class="row align-items-center">
@@ -269,73 +614,162 @@
 
     </section><!-- /Hero Section -->
 
-    <!-- Services Section -->
-        <section id="services" class="services section">
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="row mission-vision-row g-4">
-              <div class="container section-title pt-5" data-aos="fade-up">
-                <h2>Our Services</h2>
+    <section class="dark">
+	<div class="container py-4">
+		<div class="container section-title" data-aos="fade-up">
+        <h2>Our Products</h2>
+      </div>
+
+		<article class="postcard dark blue" data-aos="fade-up" data-aos-delay="100">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="assets/img/index/decor.webp" alt="Image Title" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title blue"><a href="#">Home Decor</a></h1>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Elegant and timeless pieces crafted to add warmth and charm to any living space. Each item blends traditional artistry with modern aesthetics.</div>
+			</div>
+		</article>
+		<article class="postcard dark red" data-aos="fade-up" data-aos-delay="100">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="assets/img/index/festive.jpg" alt="Image Title" />	
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title red"><a href="#">Festive Decor</a></h1>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Celebrate every occasion with vibrant, handcrafted festive decor that brings joy and cultural flair to your celebrations.</div>
+			</div>
+		</article>
+		<article class="postcard dark green" data-aos="fade-up" data-aos-delay="100">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="assets/img/index/bag.jpeg" alt="Image Title" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title green"><a href="#">Handmade Bag</a></h1>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Artisan-crafted bags that combine style, functionality, and the unique touch of traditional handwork.</div>
+			</div>
+		</article>
+		<article class="postcard dark yellow" data-aos="fade-up" data-aos-delay="100">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="assets/img/index/recycled.jpeg" alt="Image Title" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title yellow"><a href="#">Recycled Handicraft</a></h1>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Sustainably made from upcycled materials, these eco-friendly crafts reflect creativity and conscious living.</div>
+			</div>
+		</article>
+	</div>
+</section>
+
+<!-- How it works -->
+
+<section id="history" class="history section">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container section-title" data-aos="fade-up">
+    <h2>How It Works</h2>
+  </div>
+
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>1</h4>
+                <p>Order Confirmation and Incoterm Selection</p>
               </div>
-              <!-- Direct Product export -->
-              <div class="col-md-3">
-                <a href="info4.html">
-                  <div class="text-center p-4" style="transition: all 1s ease;" 
-                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
-                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
-                <img src="assets/img/Icons/logistics.png" alt="home icon" style="width: 60px; height: 60px;" />          
-                  <h5 class="p-2">Direct Product Export</h5>
-                  <p style="margin: 0;">Export premium Indian products to you, safely and on time.</p>
-                </div>
-                </a>
-                
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>2</h4>
+                <p>Proforma Invoice Issuance and Importer Review</p>
               </div>
-              <!-- Air Freight -->
-              <div class="col-md-3">
-                <a href="info3.html">
-                  <div class="text-center p-4" style="transition: all 1s ease;" 
-                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
-                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
-                    <img src="assets/img/Icons/cargo-plane.png" alt="home icon" style="width: 60px; height: 60px;" />          
-                    <h5 class="p-2">Air Freight</h5>
-                    <p style="margin: 0;">Fast global delivery with trusted air carriers.</p>
-                  </div>
-                </a>
-                
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>3</h4>
+                <p>Payment Terms and Payment Receipt Confirmation</p>
               </div>
-              <!-- Ocean Freight FCL -->
-              <div class="col-md-3">
-                <a href="info-1.html">
-                  <div class="text-center p-4" style="transition: all 1s ease;" 
-                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
-                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
-                    <img src="assets/img/Icons/fcl.png" alt="home icon" style="width: 60px; height: 60px;" />          
-                    <h5 class="p-2">Ocean Freight FCL</h5>
-                    <p style="margin: 0;">Ship full containers with cost-effective timing.</p>
-                  </div>
-                </a>
-                
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>4</h4>
+                <p>Manufacturing/Preparation starts</p>
               </div>
-              <!-- Ocean Freight LCL -->
-              <div class="col-md-3">
-                <a href="info2.html">
-                  <div class="text-center p-4" style="transition: all 1s ease;" 
-                    onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.background='#fff'; this.style.transform='translateY(-5px)';"
-                    onmouseout="this.style.boxShadow='none'; this.style.background='none'; this.style.transform='none';">
-                  <img src="assets/img/Icons/lcl.png" alt="home icon" style="width: 60px; height: 60px;" />          
-                  <h5 class="p-2">Ocean Freight LCL</h5>
-                  <p style="margin: 0;">Share container space for flexible, low-cost shipping.</p>
-                </div>
-                </a>
-                
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>5</h4>
+                <p>Packing and Labeling</p>
+              </div>
+            </div>
+
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>6</h4>
+                <p>Export Customs Clearance and Shipping Booking</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>7</h4>
+                <p>Goods Loaded on Vessel & Bill of Lading Issuance </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>8</h4>
+                <p>After Final Payment then Bill of Lading and other documents Dispatch</p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
 
+      <div class="col-lg-6">
+        <div class="about-image" data-aos="zoom-in" data-aos-delay="300">
+          <img src="assets/img/index/howitworkss.webp" alt="Campus" class="img-fluid shadow-lg">
 
-        <!-- About Section -->
+          <div class="mission-vision" data-aos="fade-up" data-aos-delay="400">
+            <div class="mission">
+              <h3>Our Mission</h3>
+              <p>To deliver high-quality Indian products to the global market by ensuring excellence in service, ethical practices, and long-term partnerships that drive mutual growth and sustainability.</p>
+            </div>
 
-        <section id="about" class="about section">
+            <div class="vision">
+              <h3>Our Vision</h3>
+              <p>To become a globally trusted name in exports from India by consistently providing value-driven solutions, embracing innovation, and championing the spirit of “Make in India” across international borders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section><!-- /History Section -->
+
+<!-- About Section -->
+
+<section id="about" class="about section">
           <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row mb-5 ">
               <div class="col-lg-6 pe-lg-5" data-aos="fade-right" data-aos-delay="200">
@@ -371,159 +805,7 @@
         </section>
 
         
-        <!-- Features -->
 
-        <section id="stats" class="stats section">
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="row mt-5">
-              <div class="col-lg-12">
-                <div class="achievements-gallery" data-aos="fade-up" data-aos-delay="400">
-                  <div class="container section-title" data-aos="fade-up">
-                    <h2>Features</h2>
-                  </div>
-                  <div class="row g-4 justify-content-center">
-                    <div class="col-md-6">
-                      <div class="achievement-item text-center h-100">
-                        <img src="assets/img/index/pexels-tomfisk-3856433.webp" alt="Achievement" class="img-fluid" >
-                        <div class="achievement-content mt-2">
-                          <h4>Top Quality</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="achievement-item text-center h-100">
-                        <img src="assets/img/index/pexels-kaip-1544372.webp" alt="Achievement" class="img-fluid">
-                        <div class="achievement-content mt-2">
-                          <h4>Customizable</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="achievement-item text-center h-100">
-                        <img src="assets/img/index/pexels-ron-pedersen-115813525-9765254.webp" alt="Achievement" class="img-fluid">
-                        <div class="achievement-content mt-2">
-                          <h4>Cost-Effective</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="achievement-item text-center h-100">
-                        <img src="assets/img/index/pexels-wolfgang-weiser-467045605-31382902.webp" alt="Achievement" class="img-fluid"> 
-                        <div class="achievement-content mt-2">
-                          <h4>Reliable Support</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-    <section id="history" class="history section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="container section-title" data-aos="fade-up">
-        <h2>How It Works</h2>
-        <!-- <p class="iamblue">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
-      </div><!-- End Section Title -->
-
-        <div class="row align-items-center g-5">
-          <div class="col-lg-6">
-            <div class="about-content" data-aos="fade-up" data-aos-delay="200">
-              
-              <div class="timeline">
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>1</h4>
-                    <p>Order Confirmation and Incoterm Selection</p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>2</h4>
-                    <p>Proforma Invoice Issuance and Importer Review</p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>3</h4>
-                    <p>Payment Terms and Payment Receipt Confirmation</p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>4</h4>
-                    <p>Manufacturing/Preparation starts</p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>5</h4>
-                    <p>Packing and Labeling</p>
-                  </div>
-                </div>
-
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>6</h4>
-                    <p>Export Customs Clearance and Shipping Booking</p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>7</h4>
-                    <p>Goods Loaded on Vessel & Bill of Lading Issuance </p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>8</h4>
-                    <p>After Final Payment then Bill of Lading and other documents Dispatch</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="about-image" data-aos="zoom-in" data-aos-delay="300">
-              <img src="assets/img/index/howitworkss.webp" alt="Campus" class="img-fluid shadow-lg">
-
-              <div class="mission-vision" data-aos="fade-up" data-aos-delay="400">
-                <div class="mission">
-                  <h3>Our Mission</h3>
-                  <p>To deliver high-quality Indian products to the global market by ensuring excellence in service, ethical practices, and long-term partnerships that drive mutual growth and sustainability.</p>
-                </div>
-
-                <div class="vision">
-                  <h3>Our Vision</h3>
-                  <p>To become a globally trusted name in exports from India by consistently providing value-driven solutions, embracing innovation, and championing the spirit of “Make in India” across international borders.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /History Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
